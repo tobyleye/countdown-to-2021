@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import "./styles.css";
 
-let nextYear = new Date(2021, 0, 1);
+let year2021 = new Date(2021, 0, 1);
 
 let divmod = (numerator, denominator) => {
   let d = Math.floor(numerator / denominator);
@@ -23,7 +23,7 @@ const PadStart = ({ value, padString = "0", times = 2 }) => (
 );
 
 const Countdown = () => {
-  const [_, tick] = useReducer((c) => c + 1, 0);
+  const [, tick] = useReducer((c) => c + 1, 0);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -32,7 +32,7 @@ const Countdown = () => {
     return () => clearTimeout(timeout);
   });
 
-  let remainingMilliSeconds = nextYear - new Date();
+  let remainingMilliSeconds = year2021 - new Date();
   const dhms = millisecondsToDHMS(remainingMilliSeconds);
 
   return (
