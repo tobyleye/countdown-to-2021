@@ -14,10 +14,8 @@ const millisecondsToDHMS = (ms) => {
   let [hours, r2] = divmod(r1, 1000 * 60 * 60);
   let [minutes, r3] = divmod(r2, 1000 * 60);
   let [seconds] = divmod(r3, 1000);
-  [days, hours, minutes, seconds].forEach((item) => {
-    item.toString().padStart(2, "0");
-  });
-  return { days: days.toString().padStart(2, "0"), hours, minutes, seconds };
+
+  return { days, hours, minutes, seconds };
 };
 
 const PadStart = ({ value, padString = "0", times = 2 }) => (
