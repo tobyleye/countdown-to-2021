@@ -15,12 +15,14 @@ const millisecondsToDHMS = (ms) => {
   let [minutes, r3] = divmod(r2, 1000 * 60);
   let [seconds] = divmod(r3, 1000);
 
-  return { days, hours, minutes, seconds };
-};
+  const result = { days, hours, minutes, seconds };
+  // pad start each key value
+  Object.keys(result).forEach((key) => {
+    result[key] = result[key].toString().padStart(2, "0");
+  });
 
-const PadStart = ({ value, padString = "0", times = 2 }) => (
-  <span>{value.toString().padStart(times, padString)}</span>
-);
+  return result;
+};
 
 const Countdown = () => {
   const [, tick] = useReducer((c) => c + 1, 0);
@@ -39,21 +41,21 @@ const Countdown = () => {
     <div>
       <div className="countdown-to-next-year">
         <div className="unit">
-          <PadStart value={dhms.days} />
+          <span>{dhms.days}</span>
           <span>Days</span>
         </div>
 
         <div className="unit">
-          <PadStart value={dhms.hours} />
+          <span>{dhms.hours}</span>
           <span>Hours</span>
         </div>
 
         <div className="unit">
-          <PadStart value={dhms.minutes} />
+          <span>{dhms.minutes}</span>
           <span>Minutes</span>
         </div>
         <div className="unit">
-          <PadStart value={dhms.seconds} />
+          <span>{dhms.seconds}</span>
           <span>Seconds</span>
         </div>
       </div>
