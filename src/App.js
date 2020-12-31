@@ -4,7 +4,7 @@ import HappyNewYear from "./HappyNewYear";
 import "./styles.css";
 
 export default function App() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   return (
     <div className="App">
       {show ? <HappyNewYear /> : <Countdown onFinish={() => setShow(true)} />}
