@@ -9,12 +9,15 @@ const divmod = (numerator, denominator) => {
   return [d, remainder];
 };
 const millisecondsToDHMS = (ms) => {
+  /* perhaps not the cleanest way of converting 
+  milliseconds to days, hours, minutes and seconds
+  */
   let [days, r1] = divmod(ms, 1000 * 60 * 60 * 24);
   let [hours, r2] = divmod(r1, 1000 * 60 * 60);
   let [minutes, r3] = divmod(r2, 1000 * 60);
   let [seconds] = divmod(r3, 1000);
   const result = { days, hours, minutes, seconds };
-  // pad start each key value
+  // prepend each value with '0' if length not up to 2
   Object.keys(result).forEach((key) => {
     result[key] = result[key].toString().padStart(2, "0");
   });
