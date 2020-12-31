@@ -52,6 +52,17 @@ body {
   font-size: 14px;
 }
 
+.hny {
+  font-size: 60px;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.hny_bottom {
+  margin-top: 10px;
+}
+
 @media (max-width: 600px) {
   .countdown-to-next-year > div:not(:last-child) {
     margin-right: 20px;
@@ -59,6 +70,10 @@ body {
 
   .unit span:first-child {
     font-size: 40px;
-    
+  }
+
+  .hny {
+    font-size: 35px;
   }
 }
+
