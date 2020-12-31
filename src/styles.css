@@ -1,3 +1,8 @@
+@font-face {
+  font-family: digital;
+  src: url('./assets/digital-7.regular.ttf')
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -25,7 +30,7 @@ body {
 }
 
 .countdown-to-next-year > div:not(:last-child) {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .unit {
@@ -34,12 +39,24 @@ body {
 }
 
 .unit span:first-child {
-  font-size: 35px;
+  font-size: 85px;
   font-weight: 900;
+  font-family: digital, sans-serif;
 }
 
 .unit span:last-child {
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .countdown-to-next-year > div:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .unit span:first-child {
+    font-size: 40px;
+    
+  }
 }
